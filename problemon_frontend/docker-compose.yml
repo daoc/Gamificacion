@@ -1,0 +1,46 @@
+# Docker Mongo:
+
+#docker run -d -p 27017:27017 --network mongonet --name mongo -v ~/docker/mongo/data:/data/db mongo
+
+#docker run -d -p 8081:8081 --network mongonet --name mongo-express mongo-express
+
+#docker run -d -p 3000:3000 --network mongonet --name loopback loopback
+
+#docker-compose -f docker-compose.yml up
+
+version: '3.1'
+
+networks:
+  mongonet:
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/docker/mongo/data:/data/db
+    networks:
+      - mongonet
+  # mongo-express no es necesario pero ayuda a ver qué pasa en la bdd
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - mongonet
+  problemon_backend:
+    image: daoc/problemon_backend
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - mongonet
+  problemon_frontend:
+    image: daoc/problemon_frontend
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - mongonet

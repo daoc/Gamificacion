@@ -1,0 +1,45 @@
+{
+  "name": "Question",
+  "plural": "questions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+	 "tema": {
+      "type": "string",
+      "required": true
+    }, 
+	"subject": {
+      "type": "string",
+      "required": true
+    }, 
+    "tittle": {
+      "type": "string",
+      "required": true
+    }, 
+	"description": {
+      "type": "string"
+    },
+	"image": {
+      "type": "string"
+    },
+	"options": {
+      "type": "any"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "additional_info": {
+      "type": "any"
+    },
+    "degree": {
+      "type": "any"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

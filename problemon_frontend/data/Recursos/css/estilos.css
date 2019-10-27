@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    /* Direction of the items, can be row or column */
+    flex-direction: column;
+}
+
+header {
+	height: 30px;
+	border-radius: 0px 0px 94px 94px;
+	-moz-border-radius: 0px 0px 94px 94px;
+	-webkit-border-radius: 0px 0px 94px 94px;
+	border: 1px solid #000000;
+}
+
+.footer {
+	background:#000000;
+	color:#fff;
+	padding:10px;
+	text-align:center;
+	width:100%;
+	height:50px;
+	opacity: 0.7;
+	border-radius: 94px 94px 0px 0px;
+	-moz-border-radius: 94px 94px 0px 0px;
+	-webkit-border-radius: 94px 94px 0px 0px;
+	border: 1px solid #000000;
+}
+
+header2 {
+	height: 30px;
+}
+
+.footer2 {
+	background:#000000;
+	color:#fff;
+	text-align:center;
+	width:100%;
+	height:32px;
+	opacity: 0.7;
+	border-radius: 94px 94px 0px 0px;
+	-moz-border-radius: 94px 94px 0px 0px;
+	-webkit-border-radius: 94px 94px 0px 0px;
+	border: 1px solid #000000;
+}
+
+main {
+    flex: 1;
+}
+
+.menu{
+	background: #000000;
+	color:#fff;
+	width: 100%;
+	height: 50px;
+	border-radius: 0px 0px 54px 54px;
+	-moz-border-radius: 0px 0px 54px 54px;
+	-webkit-border-radius: 0px 0px 54px 54px;
+	border: 1px solid #000000;
+	opacity: 0.83;
+}
+
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.filaseleccionar>
+tr:hover td {
+		cursor: pointer; 
+		color: firebrick;
+}
+
+.cajastexto{
+	text-align: center;
+	border-top-color: white;
+	border-top: 0px;
+	border-left: 0px;
+	border-left-color: white;
+	border-right-color: white;
+	border-bottom-color: #fb8404;
+	border-bottom-style:double 10px;
+}
+
+.header .contenedor{
+	display:flex;
+	justify-content:space-between;
+}
+
+*{
+	box-sizing: border-boX;
+}
+
+.izq{
+	float:left;	
+	width:425px;
+	height:500px;
+}
+
+
+
+.cent{
+	display: inline-block;
+    text-align: left;
+    background: #fff;
+    padding : 20px;
+    border : 1px solid #000;
+	
+	border-right-style:double;
+	width:35%;
+	height:40%;
+	background-color: white;
+	opacity: 0.80;
+	border-radius: 94px 94px 94px 94px;
+	-moz-border-radius: 94px 94px 94px 94px;
+	-webkit-border-radius: 94px 94px 94px 94px;
+	border: 1px solid #000000;
+}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+  .cent{
+	display: inline-block;
+    text-align: left;
+    background: #fff;
+    padding : 20px;
+    border : 1px solid #000;
+	
+	border-right-style:double;
+	width:35%;
+	height:100%;
+	background-color: white;
+	opacity: 0.80;
+	border-radius: 94px 94px 94px 94px;
+	-moz-border-radius: 94px 94px 94px 94px;
+	-webkit-border-radius: 94px 94px 94px 94px;
+	border: 1px solid #000000;
+}
+}
+
+.der{
+	float:left;
+	width:425px;
+	height:500px;
+}	
+img{
+	display: block;
+	max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing: 1.5px;
+	padding:10px;
+}
+
+body{
+	background-image: -webkit-radial-gradient(top left, red, black, white);
+background-image: -moz-radial-gradient(top left, red, black, white);
+background-image: -ms-radial-gradient(top left, red, black, white);
+background-image: -o-radial-gradient(top left, red, black, white);
+	background-size: cover;
+	margin:0;
+	font-family: 'Open Sans', sans-serif;	
+}
+
+.tb1{
+	border: 2px solid;
+}
+
+.tb1 td{
+	border: 2px solid;
+	padding-right: 100px;
+}
+.tb2{
+	border: 1px solid;
+}
+
+.tb2 td{
+	border: 1px solid;
+	padding-right: 80px;
+}	
+.ContenidoPrin{
+	margin-left:20%;
+	margin-top:5%;
+	height:650px;
+	width:75%;
+}
+/*--------------Estilos del header-----------*/
+
+.header{
+	height:75px;
+	background:#000000;
+	width:100%;
+	cclear:both;
+	opacity: 0.80;
+}
+	
+.header .contenedor{
+	display:flex;
+	justify-content: space-around;
+}
+
+.Titulo, .icon-menu, .icon-menu-lateral{
+	margin:5px;
+	color: #FFFFFF;
+}
+
+.icon-menu{
+	display:block;
+	width:40px;
+	height:40px;
+	font-size:30px;
+	background:#A6ACAF;
+	text-align:center;
+	line-height:45px; 
+	border-radius:10px; 
+	margin-left:auto; 
+}
+
+.icon-menu-lateral{
+	display:block;
+	width:40px;
+	height:40px;
+	font-size:30px;
+	background:#A6ACAF;
+	text-align:center;
+	line-height:45px; 
+	border-radius:10px; 
+	margin-rogth:auto; 
+	margin-top:270px;
+}
+
+/*--------------Estilos del menu-------------
+
+.nav{
+	position:absolute;
+	top:60px;
+	left:-100%;
+	width: 100%;
+	transition: all 0.4s;
+}
+*/
+
+.Menu{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+.Menu_link{
+	display:block;
+	padding:15px;
+	background:#2E4053;
+	text-decoration:none;
+	color: #fff;
+}
+
+.Menu_link:hover, .select{
+	background:#A6ACAF;
+	color:#fff;
+}
+
+.mostrar{
+	left:0;
+}
+
+/*---------------Menu Lateral----------------------*/
+	
+	
+
+/*------------Estilos del Banner----------*/
+
+
+/*------------Estilos de footer-----------*/
+
+
+/*--------------Botones------------------*/
+.botoncalcular{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:100px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botoncalcular span{
+	padding-right:10px;
+}
+
+.botoncalcular:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+
+.botonguardar{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:150px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botones{
+    background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:180px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	border-left: 0px;
+	border-top: 0px;
+}
+.botones:hover{
+	border-radius: 30px 30px 30px 30px;
+	-moz-border-radius: 30px 30px 30px 30px;
+	-webkit-border-radius: 30px 30px 30px 30px;
+	border: 1px solid #000000;
+	color: firebrick;
+}
+.botones span{
+	padding-right:10px;
+}
+
+.botonesdisabled
+{
+	cursor: not-allowed;
+	background-color: grey !important;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:180px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	border-left: 0px;
+	border-top: 0px;
+	pointer-events:none;
+}
+
+.botonguardar span{
+	padding-right:10px;
+}
+
+.botonguardar:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+
+.botonnuevo{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:100px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botonnuevo span{
+	padding-right:10px;
+}
+
+.botonnuevo:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+
+.botonimprimir{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	width:100px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botonimprimir span{
+	padding-right:10px;
+}
+
+.botonimprimir:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+
+.botonregresar{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:15px;
+	margin:20px;
+	padding:10px;
+	text-align:center;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botonregresar span{
+	padding-right:10px;
+}
+
+.botonregresar:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+
+.botonaumentarfilas{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:8px;
+	margin:3px;
+	padding:8px;
+	text-align:center;
+	width:20px;
+	text-decoration:none;
+	box-shadow:2px 2px 2px #D0D3D4;
+}
+
+.botonaumentarfilas span{
+	padding-right:10px;
+}
+
+.botonaumentarfilas:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+/*---------------Estilos Factura---------------*/
+
+.Botones_Funciones{
+	display:inline-block;
+	width:200px;
+}
+
+.EncabezadoFactura{
+	padding:20px;
+	margin-top:40px;
+	margin-bottom:20px;
+	border:5px solid;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-color:#979A9A;
+	
+}
+
+.CuerpoFactura{
+	padding:20px;
+	margin-bottom:20px;
+	border:5px solid;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-color:#979A9A;                                    
+}
+
+
+
+.Cuentas_Co{
+    margin-top:100px;
+    margin-bottom:225px;
+}
+
+    /*--------------------Estilos del responsive-------------*/
+
+    @media(min-width:480px){
+      .izq{
+            display: none;
+        }
+        
+        .Cuentas_Cobrar{
+            margin:auto;
+            padding:20px;
+            width:100%;
+            height:100%;
+            display:inline-block;
+            border:5px solid;
+            border-radius:10px;
+            -moz-border-radius:10px;
+            -webkit-border-radius:10px;
+            border-color:#979A9A;
+        }
+        
+        .Consultas{
+             width:100%;
+        }
+        .Consultas_Tab{
+            width:50%;
+        }
+    }
+
+
+    @media(min-width:768px){
+        .izq{
+            display: none;
+        }
+        
+        .Cuentas_Cobrar{
+            margin:auto;
+            padding:20px;
+            width:100%;
+            height:100%;
+            display:inline-block;
+            border:5px solid;
+            border-radius:10px;
+            -moz-border-radius:10px;
+            -webkit-border-radius:10px;
+            border-color:#979A9A;
+        }
+    }
+
+    @media(min-width:1024px){
+        .izq{
+            display:inline-block;
+        }
+    }
+
+    @media(min-width:1280px){
+        .izq{
+            display:inline-block;
+        }
+        
+       
+        
+        .Cuentas_Cobrar{
+        margin:auto;
+        padding:20px;
+        width:800px;
+        height:100%;
+        display:inline-block;
+        border:5px solid;
+        border-radius:10px;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        border-color:#979A9A;
+        }   
+
+    }
+
+.botonok{
+	background:#1B2631;
+	display:inline-block;
+	color:#fff;
+	font-size:12px;
+	margin:2px;
+	padding:3px;
+	text-align:center;
+	width:80px;
+	text-decoration:none;
+	box-shadow:2px 4px 2px #D0D3D4;
+	
+}
+
+.botonok span{
+	padding-right:2px;
+}
+
+.botonok:hover{
+	box-shadow:0px 0px 0px;
+	padding-top:7px;
+}
+

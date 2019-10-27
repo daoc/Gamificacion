@@ -1,0 +1,37 @@
+{
+  "name": "Course",
+  "plural": "courses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+   "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "profesour": {
+      "type": "string"
+    },
+    "students": {
+      "type": "any"
+    },
+    "type": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

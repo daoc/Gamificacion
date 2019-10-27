@@ -1,0 +1,42 @@
+# Docker Gamificación - Servidor:
+
+# docker-compose -f docker-compose.yml up
+# arrancar en el host con http://localhost:8080
+
+version: '3.1'
+
+networks:
+  mongonet:
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    # El directorio origen debe adaptarse a la máquina donde se utilice
+    volumes:
+      - ./mongo/data:/data/db
+    networks:
+      - mongonet
+  # mongo-express no es necesario pero ayuda a ver qué pasa en la bdd
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - mongonet
+  problemon_backend:
+    image: daoc/problemon_backend
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - mongonet
+  problemon_frontend:
+    image: daoc/problemon_frontend
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - mongonet

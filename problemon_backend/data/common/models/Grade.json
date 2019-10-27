@@ -1,0 +1,32 @@
+{
+  "name": "Grade",
+  "plural": "grades",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "activity": {
+      "type": "string",
+      "required": true
+    }, 
+	"student": {
+      "type": "string",
+      "required": true
+    },
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "grade": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

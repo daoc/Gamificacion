@@ -1,0 +1,53 @@
+{
+  "name": "Activity",
+  "plural": "activities",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "game": {
+      "type": "string",
+      "required": true
+    }, 
+	"course": {
+      "type": "string",
+      "required": true
+    },
+    "profesour": {
+      "type": "string"
+    },
+    "groups": {
+      "type": "any"
+    },
+    "start": {
+      "type": "string"
+    },
+    "end": {
+      "type": "string"
+    },
+    "tries": {
+      "type": "number"
+    },
+    "time_per_question": {
+      "type": "number"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "ponderation": {
+      "type": "number"
+    },
+    "ponderation_per_question": {
+      "type": "number"
+    },
+    "question_list": {
+      "type": "any"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
