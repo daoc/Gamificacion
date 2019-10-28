@@ -1,0 +1,28 @@
+# En toolbox no parece funcionar localhost y hay que usar la ip del host
+# que se puede ver con 'docker-machine ip', por ejemplo 192.168.99.100
+
+# Crear usuario admin
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+  \ 
+ "identification": "admin%40ute", \ 
+  \ 
+   "name": "Admin", \ 
+   "rol": [ \ 
+     "Administrador" \ 
+   ], \ 
+   "user": "admin", \ 
+   "status": "ACTIVO" \ 
+ }' 'http://localhost:3000/api/people'
+ 
+# Crear datos de usuario admin
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+  \ 
+ "identification": "admin%40ute", \ 
+  \ 
+   "name": "Admin", \ 
+   "rol": [ \ 
+     "Administrador" \ 
+   ], \ 
+   "user": "admin", \ 
+   "status": "ACTIVO" \ 
+ }' 'http://localhost:3000/api/people'

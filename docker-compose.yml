@@ -13,9 +13,11 @@ services:
     restart: always
     ports:
       - 27017:27017
-    # El directorio origen debe adaptarse a la máquina donde se utilice
-    volumes:
-      - ./mongo/data:/data/db
+    #El directorio origen debe adaptarse a la máquina donde se utilice
+    #Esto solo si se desea tener la base en directorio local para evitar
+    #pérdidas en caso de borrar el container
+    #volumes:
+    #  - ./mongo/data:/data/db
     networks:
       - mongonet
   # mongo-express no es necesario pero ayuda a ver qué pasa en la bdd
