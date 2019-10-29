@@ -2,27 +2,31 @@
 # que se puede ver con 'docker-machine ip', por ejemplo 192.168.99.100
 
 # Crear usuario admin
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
-  \ 
- "identification": "admin%40ute", \ 
-  \ 
-   "name": "Admin", \ 
-   "rol": [ \ 
-     "Administrador" \ 
-   ], \ 
-   "user": "admin", \ 
-   "status": "ACTIVO" \ 
- }' 'http://localhost:3000/api/people'
+
+# En el browser ir a: http://192.168.99.100:3000/explorer/#!/User/User_create
+En la caja "data" poner:
+
+{
+  "username": "admin",
+  "password": "admin",
+  "email": "admin@ute"
+}
+
+dar click en "Try it out!"
  
 # Crear datos de usuario admin
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
-  \ 
- "identification": "admin%40ute", \ 
-  \ 
-   "name": "Admin", \ 
-   "rol": [ \ 
-     "Administrador" \ 
-   ], \ 
-   "user": "admin", \ 
-   "status": "ACTIVO" \ 
- }' 'http://localhost:3000/api/people'
+
+# En el browser ir a: http://192.168.99.100:3000/explorer/#!/Person/Person_create
+En la caja "data" poner:
+
+{
+  "identification": "admin@ute",
+  "name": "Administrador Principal",
+  "rol": [
+    "Administrador"
+  ],
+  "user": "admin",
+  "status": "ACTIVO"
+}
+
+dar click en "Try it out!"

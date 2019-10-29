@@ -1,23 +1,24 @@
 # Docker Gamificación - Servidor:
 
 # docker-compose -f docker-compose.yml up
+# Si es la primera vez, deberá seguir las instrucciones en datosIniciales.txt
 # arrancar en el host con http://localhost:8080
+# o en Docker toolbox (Windows) por IP: http://http://192.168.99.100/:8080
 
 version: '3.1'
 
 networks:
   mongonet:
+volumes:
+  mongodata:
 services:
   mongo:
     image: mongo
     restart: always
     ports:
       - 27017:27017
-    #El directorio origen debe adaptarse a la máquina donde se utilice
-    #Esto solo si se desea tener la base en directorio local para evitar
-    #pérdidas en caso de borrar el container
-    #volumes:
-    #  - ./mongo/data:/data/db
+    volumes:
+      - mongodata:/data/db
     networks:
       - mongonet
   # mongo-express no es necesario pero ayuda a ver qué pasa en la bdd
