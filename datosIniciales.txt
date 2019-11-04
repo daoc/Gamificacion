@@ -1,3 +1,9 @@
+# Si ya estamos dentro del host, entonces correr estas dos instrucciones:
+
+curl -d '{"username":"admin","password":"admin","email": "admin@ute"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/Users
+
+curl -d '{"identification":"admin@ute","name":"Administrador Principal","rol":["Administrador"],"user":"admin","status": "ACTIVO"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/People
+
 # En toolbox no parece funcionar localhost y hay que usar la ip del host
 # que se puede ver con 'docker-machine ip', por ejemplo 192.168.99.100
 
