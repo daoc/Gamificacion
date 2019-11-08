@@ -38,8 +38,8 @@ public class MainActivity extends Activity {
 
     private GLSurfaceView mGLView;
     private MyRenderer renderer = null;
-    private FrameBuffer fb = null;
-    private World world = null;
+//    private FrameBuffer fb = null;
+//    private World world = null;
 
     private float touchTurn = 0;
     private float touchTurnUp = 0;
@@ -47,13 +47,10 @@ public class MainActivity extends Activity {
     private float xpos = -1;
     private float ypos = -1;
 
-    private Object3D cube = null;
-    private int fps = 0;
+//    private Object3D cube = null;
+//    private int fps = 0;
 
-    private Light sun = null;
-
-
-    // get full details from http://geekonjava.blogspot.com/2016/05/monster-overlay-on-android-camera-using-jpct.html
+//    private Light sun = null;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -89,11 +86,6 @@ public class MainActivity extends Activity {
         mGLView.onResume();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
     private void copy(Object src) {
         try {
             Logger.log("Copying data from master Activity!");
@@ -107,6 +99,7 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
     public boolean onTouchEvent(MotionEvent me) {
 
         if (me.getAction() == MotionEvent.ACTION_DOWN) {
@@ -144,14 +137,12 @@ public class MainActivity extends Activity {
         return super.onTouchEvent(me);
     }
 
-    protected boolean isFullscreenOpaque() {
-        return true;
-    }
-
-
-    //get full details from http://geekonjava.blogspot.com/2016/05/monster-overlay-on-android-camera-using-jpct.html
     class MyRenderer implements GLSurfaceView.Renderer {
-
+        private FrameBuffer fb;
+        private World world;
+        private Light sun;
+        private Object3D cube;
+        private int fps = 0;
         private long time = System.currentTimeMillis();
 
         public MyRenderer() {
