@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap icon = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
 
                 //world.add(objectFactory.newHexGroupTest(null));
-                //world.add(objectFactory.newCube(Color.green()));
-                world.add(objectFactory.newTexturedSquare("uno", BitmapFactory.decodeResource(getResources(), R.drawable.texture)));
+                world.add(objectFactory.newCube(Color.green()));
+                //world.add(objectFactory.newTexturedSquare("uno", BitmapFactory.decodeResource(getResources(), R.drawable.texture)));
             }
         });
     }
