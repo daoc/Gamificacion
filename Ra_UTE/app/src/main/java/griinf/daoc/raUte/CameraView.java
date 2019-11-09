@@ -17,12 +17,12 @@ public class CameraView extends SurfaceView implements Callback {
         getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
+    @Override
     public void surfaceCreated(SurfaceHolder holder) {
         camera = Camera.open();
     }
 
-    // get full details from http://geekonjava.blogspot.com/2016/05/monster-overlay-on-android-camera-using-jpct.html
-
+    @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Camera.Parameters p = camera.getParameters();
         /**
@@ -44,6 +44,7 @@ public class CameraView extends SurfaceView implements Callback {
         camera.startPreview();
     }
 
+    @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         camera.stopPreview();
         camera.release();
