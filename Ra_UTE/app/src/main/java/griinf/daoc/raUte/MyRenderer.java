@@ -88,7 +88,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
         //cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, null);
         //cube = loadModel(R.raw.pokeball, 0.1f, Type3D._3DS, null);
-        cube = loadModel(R.raw.hummingbird, 0.05f, Type3D._3DS, null);
+        cube = loadModel(R.raw.other_pokeball, 5f, Type3D._OBJ, null);
         //cube = loadModel(R.raw.monster, 0.7f, Type3D._3DS, "monster");
         cube.build();
 
