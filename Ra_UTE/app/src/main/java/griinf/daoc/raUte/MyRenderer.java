@@ -18,11 +18,14 @@ import com.threed.jpct.util.BitmapHelper;
 import com.threed.jpct.util.MemoryHelper;
 
 import java.io.InputStream;
+import java.util.Random;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 public class MyRenderer implements GLSurfaceView.Renderer {
+    Random rnd = new Random();
+
     enum Type3D {
         _3DS,
         _OBJ
@@ -63,6 +66,15 @@ public class MyRenderer implements GLSurfaceView.Renderer {
             cube.rotateX(master.touchTurnUp);
             master.touchTurnUp = 0;
         }
+        float tX = 0.1f;
+        float tY = 0.1f;
+        float tZ = 0.1f;
+
+        if(rnd.nextBoolean()) tX *= -1;
+        if(rnd.nextBoolean()) tY *= -1;
+        if(rnd.nextBoolean()) tZ *= -1;
+
+        cube.translate(tX, tY, tZ);
 
         fb.clear();
         world.renderScene(fb);
@@ -83,12 +95,12 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         Light sun = new Light(world);
         sun.setIntensity(250, 250, 250);
 
-        loadTexture(R.drawable.monster, "monster");
-        //loadTexture(R.drawable.pokeball, "pokeball");
+        //loadTexture(R.drawable.monster, "monster");
+        loadTexture(R.drawable.charizard, "charizard");
 
-        //cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, null);
+        cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, "charizard");
         //cube = loadModel(R.raw.pokeball, 0.1f, Type3D._3DS, null);
-        cube = loadModel(R.raw.other_pokeball, 5f, Type3D._OBJ, null);
+        //cube = loadModel(R.raw.other_pokeball, 5f, Type3D._OBJ, null);
         //cube = loadModel(R.raw.monster, 0.7f, Type3D._3DS, "monster");
         cube.build();
 
