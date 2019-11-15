@@ -11,6 +11,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.WindowManager.LayoutParams;
+import android.widget.Button;
 
 import com.threed.jpct.Logger;
 
@@ -51,6 +52,14 @@ public class MainActivity extends Activity {
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         motion = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+
+        Button b = new Button(this);
+        b.setText("Fire!");
+        LayoutParams lp = new LayoutParams();
+        lp.width = LayoutParams.WRAP_CONTENT;
+        lp.height = LayoutParams.WRAP_CONTENT;
+//        lp.verticalMargin = LayoutParams.
+        addContentView(b, lp);
     }
 
     SensorEventListener sel = new SensorEventListener() {

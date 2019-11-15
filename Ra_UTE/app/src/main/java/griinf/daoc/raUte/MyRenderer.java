@@ -10,6 +10,8 @@ import com.threed.jpct.Loader;
 import com.threed.jpct.Logger;
 import com.threed.jpct.Matrix;
 import com.threed.jpct.Object3D;
+import com.threed.jpct.Primitives;
+import com.threed.jpct.RGBColor;
 import com.threed.jpct.SimpleVector;
 import com.threed.jpct.Texture;
 import com.threed.jpct.TextureManager;
@@ -98,6 +100,11 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         world.setAmbientLight(20, 20, 20);
         Light sun = new Light(world);
         sun.setIntensity(250, 250, 250);
+
+        Object3D bala = Primitives.getSphere(2f);
+        bala.setAdditionalColor(RGBColor.RED);
+        bala.build();
+        world.addObject(bala);
 
         //loadTexture(R.drawable.monster, "monster");
         loadTexture(R.drawable.charizard, "charizard");
