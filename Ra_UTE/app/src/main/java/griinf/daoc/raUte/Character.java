@@ -23,7 +23,11 @@ public class Character {
     private Object3D obj;
     Random rnd = new Random();
     private SimpleVector vector;
-    private float probability;
+
+    private float probability = 0.1f;
+    private float factor = 1f;
+    private float max_distance = 40f;
+    private float step_distance = 2f;
 
     public Character(Context context, Type3D type, int modelRes, float scale, @Nullable Integer materialRes, @Nullable String texture) {
         this.context = context;
@@ -37,7 +41,6 @@ public class Character {
     private void init(Type3D type, int modelRes, float scale, Integer materialRes, String texture) {
         vector = new SimpleVector();
         //vector.set(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat());
-        probability = 0.05f;
 
         InputStream modelStream = context.getResources().openRawResource(modelRes);
         InputStream materialStream = null;
@@ -60,12 +63,11 @@ public class Character {
         getObj().rotateX(up);
     }
 
-    private float factor = 3f;
     public void move() {
 
         if(rnd.nextFloat() < probability) {
             vector.set(rnd.nextFloat() * factor - factor / 2, rnd.nextFloat() * factor - factor / 2, rnd.nextFloat() * factor - factor / 2);
-            getCloser(vector, 50, 5);
+            getCloser(vector, max_distance, step_distance);
         }
         getObj().translate(vector);
         System.out.println(getObj().getTransformedCenter());
