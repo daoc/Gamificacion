@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
@@ -58,7 +59,8 @@ public class MainActivity extends Activity {
         LayoutParams lp = new LayoutParams();
         lp.width = LayoutParams.WRAP_CONTENT;
         lp.height = LayoutParams.WRAP_CONTENT;
-//        lp.verticalMargin = LayoutParams.
+        //lp.gravity = Gravity.BOTTOM;
+        //b.setLayoutParams(lp);
         addContentView(b, lp);
     }
 

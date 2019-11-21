@@ -36,6 +36,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private FrameBuffer fb;
     private World world;
     private Camera cam;
+    private SimpleVector origin;
+    private Object3D bala;
 
     //private Object3D cube;
     private int fps = 0;
@@ -82,6 +84,11 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         cam.rotateCameraY(-master.deltaRotationVector[0] * proportion);
 //        cam.rotateCameraZ(-master.deltaRotationVector[2]);
 
+        SimpleVector camDir = cam.getDirection();
+        bala.align(cam);
+        bala.clearTranslation();
+        bala.translate(camDir.x, camDir.y, camDir.z+10);
+
         fb.clear();
         world.renderScene(fb);
         world.draw(fb);
@@ -97,12 +104,20 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
     private void buildWorld() {
         world = new World();
-        world.setAmbientLight(20, 20, 20);
-        Light sun = new Light(world);
-        sun.setIntensity(250, 250, 250);
+        cam = world.getCamera();
+        origin = new SimpleVector(cam.getPosition());
+        //origin.set(cam.getPosition());
+        cam.moveCamera(Camera.CAMERA_MOVEOUT, 50);
 
-        Object3D bala = Primitives.getSphere(2f);
+        world.setAmbientLight(50, 50, 50);
+        Light sun = new Light(world);
+        sun.setIntensity(200, 200, 200);
+        //sun.setPosition(new SimpleVector(origin.x, origin.y - 100, origin.z - 100));
+        sun.setPosition(cam.getPosition());
+
+        bala = Primitives.getSphere(2f);
         bala.setAdditionalColor(RGBColor.RED);
+        bala.translate(25, 0, 0);
         bala.build();
         world.addObject(bala);
 
@@ -118,15 +133,16 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         //cube.build();
         //world.addObject(cube);
 
-        cam = world.getCamera();
-        cam.moveCamera(Camera.CAMERA_MOVEOUT, 50);
-        cam.lookAt(charizard.getObj().getTransformedCenter());
 
-        SimpleVector sv = new SimpleVector();
-        sv.set(charizard.getObj().getTransformedCenter());
-        sv.y -= 100;
-        sv.z -= 100;
-        sun.setPosition(sv);
+        //cam.lookAt(charizard.getObj().getTransformedCenter());
+
+//        SimpleVector sv = new SimpleVector();
+//        //sv.set(charizard.getObj().getTransformedCenter());
+//        sv.set(origin);
+//        sv.y -= 100;
+//        sv.z -= 100;
+//        sun.setPosition(sv);
+
         MemoryHelper.compact();
     }
 
