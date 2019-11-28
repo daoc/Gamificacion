@@ -36,8 +36,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private FrameBuffer fb;
     private World world;
     private Camera cam;
-    private SimpleVector origin;
     private Object3D bala;
+    private Object3D center;
 
     //private Object3D cube;
     private int fps = 0;
@@ -80,15 +80,21 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         charizard.move();
 
         float proportion = 0.6f;
-        cam.rotateCameraX(master.deltaRotationVector[1] * proportion);
-        cam.rotateCameraY(-master.deltaRotationVector[0] * proportion);
+//        cam.rotateCameraX(master.deltaRotationVector[1] * proportion);
+//        cam.rotateCameraY(-master.deltaRotationVector[0] * proportion);
+
+        //move dummy object instead of camera
+        center.rotateX(-master.deltaRotationVector[1] * proportion);
+        center.rotateY(master.deltaRotationVector[0] * proportion);
+
+
 //        cam.rotateCameraZ(-master.deltaRotationVector[2]);
 
-        SimpleVector camDir = cam.getDirection();
-        bala.align(cam);
-        bala.clearTranslation();
-        bala.translate(camDir.x, camDir.y, camDir.z+10);
-
+        //bala.clearTranslation();
+//        bala.translate(cam.getPosition());
+//        bala.align(cam);
+//        SimpleVector camDir = cam.getDirection();
+//        bala.translate(-camDir.x, -camDir.y, camDir.z+50);
         fb.clear();
         world.renderScene(fb);
         world.draw(fb);
@@ -105,10 +111,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private void buildWorld() {
         world = new World();
         cam = world.getCamera();
-        origin = new SimpleVector(cam.getPosition());
-        //origin.set(cam.getPosition());
-        cam.moveCamera(Camera.CAMERA_MOVEOUT, 50);
-
+        center = Object3D.createDummyObj();
         world.setAmbientLight(50, 50, 50);
         Light sun = new Light(world);
         sun.setIntensity(200, 200, 200);
@@ -117,7 +120,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
         bala = Primitives.getSphere(2f);
         bala.setAdditionalColor(RGBColor.RED);
-        bala.translate(25, 0, 0);
+        bala.translate(25, 0, 50);
         bala.build();
         world.addObject(bala);
 
@@ -125,6 +128,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         loadTexture(R.drawable.charizard, "charizard");
 
         charizard = new Character(master, Character.Type3D._OBJ, R.raw.charizard, 0.9f, null, "charizard");
+        charizard.getObj().translate(0, 0, 40);
+        center.addChild(charizard.getObj());
         world.addObject(charizard.getObj());
         //cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, "charizard");
         //cube = loadModel(R.raw.pokeball, 0.1f, Type3D._3DS, null);

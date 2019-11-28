@@ -26,7 +26,8 @@ public class Character {
 
     private float probability = 0.1f;
     private float factor = 1f;
-    private float max_distance = 40f;
+    private float max_distance = 60f;
+    private float min_distance = 30f;
     private float step_distance = 2f;
 
     public Character(Context context, Type3D type, int modelRes, float scale, @Nullable Integer materialRes, @Nullable String texture) {
@@ -68,6 +69,7 @@ public class Character {
         if(rnd.nextFloat() < probability) {
             vector.set(rnd.nextFloat() * factor - factor / 2, rnd.nextFloat() * factor - factor / 2, rnd.nextFloat() * factor - factor / 2);
             getCloser(vector, max_distance, step_distance);
+            getFarther(vector, min_distance, step_distance);
         }
         getObj().translate(vector);
         System.out.println(getObj().getTransformedCenter());
@@ -90,4 +92,23 @@ public class Character {
             vector.z = step;
         }
     }
+
+    private void getFarther(SimpleVector vector, float min, float step) {
+        if(getObj().getTransformedCenter().x < min) {
+            vector.x = step;
+        } else if(getObj().getTransformedCenter().x > -min) {
+            vector.x = -step;
+        }
+        if(getObj().getTransformedCenter().y < min) {
+            vector.y = step;
+        } else if(getObj().getTransformedCenter().y > -min) {
+            vector.y = -step;
+        }
+        if(getObj().getTransformedCenter().z < min) {
+            vector.z = step;
+        } else if(getObj().getTransformedCenter().z > -min) {
+            vector.z = -step;
+        }
+    }
+
 }
