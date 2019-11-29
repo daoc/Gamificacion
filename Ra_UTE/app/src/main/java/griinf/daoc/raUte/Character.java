@@ -84,6 +84,9 @@ public class Character {
         }
         //getFarther(vector, min_distance, step_distance);
         //getCloser(vector, max_distance, step_distance);
+
+
+
         getInRange(vector, max_distance, min_distance, step_distance);
         getObj().translate(vector);
         System.out.println(getObj().getTransformedCenter());
@@ -92,16 +95,26 @@ public class Character {
     private void getInRange(SimpleVector motion, float max, float min, float step) {
         //SimpleVector distVect=getObj().getTransformedCenter().calcSub(cam.getTransformedCenter());
         //motion.distance()
-        float x = getObj().getTransformedCenter().x;
-        float y = getObj().getTransformedCenter().y;
-        float z = getObj().getTransformedCenter().z;
+        SimpleVector goBack;
+        float distance = getObj().getTransformedCenter().distance(SimpleVector.ORIGIN);
+        System.out.println("Distance: " + distance);
 
-        if(Math.abs(z) > max) {
-            vector.z = (z < 0) ? step : -step;
+        if(distance > max_distance) {
+            goBack = getObj().getTransformedCenter();//.normalize();
+            goBack.scalarMul(-1);
+            motion.set(goBack);
         }
-        if(Math.abs(z) < min) {
-            vector.z = (z > 0) ? step : -step;
-        }
+
+//        float x = getObj().getTransformedCenter().x;
+//        float y = getObj().getTransformedCenter().y;
+//        float z = getObj().getTransformedCenter().z;
+//
+//        if(Math.abs(z) > max) {
+//            vector.z = (z < 0) ? step : -step;
+//        }
+//        if(Math.abs(z) < min) {
+//            vector.z = (z > 0) ? step : -step;
+//        }
 
     }
 
