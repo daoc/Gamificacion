@@ -118,17 +118,17 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         //sun.setPosition(new SimpleVector(origin.x, origin.y - 100, origin.z - 100));
         sun.setPosition(cam.getPosition());
 
-        bala = Primitives.getSphere(2f);
+        bala = Primitives.getSphere(1f);
         bala.setAdditionalColor(RGBColor.RED);
-        bala.translate(25, 0, 50);
+        bala.translate(10, 0, 20);
         bala.build();
         world.addObject(bala);
 
         //loadTexture(R.drawable.monster, "monster");
         loadTexture(R.drawable.charizard, "charizard");
 
-        charizard = new Character(master, Character.Type3D._OBJ, R.raw.charizard, 0.9f, null, "charizard");
-        charizard.getObj().translate(0, 0, 40);
+        charizard = new Character(master, Character.Type3D._OBJ, R.raw.charizard, 0.6f, null, "charizard");
+        charizard.getObj().translate(0, 0, 30);
         center.addChild(charizard.getObj());
         world.addObject(charizard.getObj());
         //cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, "charizard");
