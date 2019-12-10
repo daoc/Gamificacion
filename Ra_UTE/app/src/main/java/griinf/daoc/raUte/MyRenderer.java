@@ -63,18 +63,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-//        if (master.touchTurn != 0) {
-//            charizard.getObj().rotateY(master.touchTurn);
-//            master.touchTurn = 0;
-//        }
-//
-//        if (master.touchTurnUp != 0) {
-//            charizard.getObj().rotateX(master.touchTurnUp);
-//            master.touchTurnUp = 0;
-//        }
-//
         charizard.turn(master.touchTurn, master.touchTurnUp);
-
         master.touchTurn = 0; master.touchTurnUp = 0;
 
         charizard.move();
