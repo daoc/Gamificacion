@@ -75,26 +75,31 @@ public class Character {
         getObj().translate(vector);
     }
 
+    /*
+    Si el actor no está en el rango definido min <-> max, se modifican obj y motion.
+    - obj: se borra su matriz de translaciones y se lo acerca o aleja de acuerdo a step
+    - motion: se encera
+     */
     private void getInRange(Object3D obj, SimpleVector motion, float max, float min, float step) {
-        SimpleVector goBackToZone;
+        boolean notInRange = false;
+        SimpleVector goBackToZone = obj.getTransformedCenter();
         float distance = obj.getTransformedCenter().distance(SimpleVector.ORIGIN);
         System.out.println("Distance: " + distance + obj.getTransformedCenter());
 
         if(distance > max_distance) {
-            goBackToZone = obj.getTransformedCenter();
+            notInRange = true;
             goBackToZone.scalarMul(1f - step);
-            obj.clearTranslation();
-            obj.translate(goBackToZone);
-            motion.set(0f, 0f, 0f);
             System.out.println(" ***Regresa: " + goBackToZone);
-        }
-        if(distance < min_distance) {
-            goBackToZone = obj.getTransformedCenter();
+        } else if(distance < min_distance) {
+            notInRange = true;
             goBackToZone.scalarMul(1f + step);
+            System.out.println(" ***Empuja: " + goBackToZone);
+        }
+
+        if(notInRange) {
             obj.clearTranslation();
             obj.translate(goBackToZone);
             motion.set(0f, 0f, 0f);
-            System.out.println(" ***Empuja: " + goBackToZone);
         }
     }
 

@@ -44,6 +44,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private long time = System.currentTimeMillis();
     private MainActivity master;
     private Character charizard;
+    private Character balita;
 
     public MyRenderer(MainActivity master) {
         this.master = master;
@@ -112,6 +113,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         bala.translate(10, 0, 20);
         bala.build();
         world.addObject(bala);
+
+        //balita = new Character(master, );
 
         //loadTexture(R.drawable.monster, "monster");
         loadTexture(R.drawable.charizard, "charizard");
