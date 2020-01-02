@@ -44,7 +44,8 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private long time = System.currentTimeMillis();
     private MainActivity master;
     private Character charizard;
-    private Character balita;
+    private Bullet bullet;
+    private Blast blast;
 
     public MyRenderer(MainActivity master) {
         this.master = master;
@@ -68,23 +69,15 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         master.touchTurn = 0; master.touchTurnUp = 0;
 
         charizard.move();
+        bullet.move();
+        blast.move();
 
-        float proportion = 0.6f;
-//        cam.rotateCameraX(master.deltaRotationVector[1] * proportion);
-//        cam.rotateCameraY(-master.deltaRotationVector[0] * proportion);
+        float proportion = 0.4f;
 
         //move dummy object instead of camera
         center.rotateX(-master.deltaRotationVector[1] * proportion);
         center.rotateY(master.deltaRotationVector[0] * proportion);
 
-
-//        cam.rotateCameraZ(-master.deltaRotationVector[2]);
-
-        //bala.clearTranslation();
-//        bala.translate(cam.getPosition());
-//        bala.align(cam);
-//        SimpleVector camDir = cam.getDirection();
-//        bala.translate(-camDir.x, -camDir.y, camDir.z+50);
         fb.clear();
         world.renderScene(fb);
         world.draw(fb);
@@ -108,37 +101,22 @@ public class MyRenderer implements GLSurfaceView.Renderer {
         //sun.setPosition(new SimpleVector(origin.x, origin.y - 100, origin.z - 100));
         sun.setPosition(cam.getPosition());
 
-        bala = Primitives.getSphere(1f);
-        bala.setAdditionalColor(RGBColor.RED);
-        bala.translate(10, 0, 20);
-        bala.build();
-        world.addObject(bala);
-
-        //balita = new Character(master, );
-
         //loadTexture(R.drawable.monster, "monster");
         loadTexture(R.drawable.charizard, "charizard");
+        loadTexture(R.drawable.bomb_explosion, "blast");
+
+
 
         charizard = new Character(master, Character.Type3D._OBJ, R.raw.charizard, 0.6f, null, "charizard");
-        charizard.getObj().translate(0, 0, 30);
+        charizard.getObj().setOrigin(new SimpleVector(0, 0, 30));
         center.addChild(charizard.getObj());
         world.addObject(charizard.getObj());
-        //cube = loadModel(R.raw.charizard, 0.9f, Type3D._OBJ, "charizard");
-        //cube = loadModel(R.raw.pokeball, 0.1f, Type3D._3DS, null);
-        //cube = loadModel(R.raw.other_pokeball, 5f, Type3D._OBJ, null);
-        //cube = loadModel(R.raw.monster, 0.7f, Type3D._3DS, "monster");
-        //cube.build();
-        //world.addObject(cube);
 
+        bullet = new Bullet(master);
+        world.addObject(bullet.getObj());
 
-        //cam.lookAt(charizard.getObj().getTransformedCenter());
-
-//        SimpleVector sv = new SimpleVector();
-//        //sv.set(charizard.getObj().getTransformedCenter());
-//        sv.set(origin);
-//        sv.y -= 100;
-//        sv.z -= 100;
-//        sun.setPosition(sv);
+        blast = new Blast(master, bullet, charizard);
+        world.addObject(blast.getObj());
 
         MemoryHelper.compact();
     }

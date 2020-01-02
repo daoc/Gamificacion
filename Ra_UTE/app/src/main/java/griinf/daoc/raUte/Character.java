@@ -21,7 +21,7 @@ public class Character {
     private SimpleVector vector;
 
     private float probability = 0.1f;
-    private float speed_factor = 0.5f;
+    private float speed_factor = 0.2f;
     private float max_distance = 80f;
     private float min_distance = 20f;
     private float step_distance = 0.1f;
@@ -51,6 +51,7 @@ public class Character {
         if(texture != null) {
             obj.setTexture(texture);
         }
+        obj.setCollisionMode(Object3D.COLLISION_CHECK_OTHERS);
         obj.build();
     }
 

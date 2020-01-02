@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.WindowManager.LayoutParams;
@@ -32,11 +33,18 @@ public class MainActivity extends Activity {
     private SensorManager sensorManager;
     private Sensor motion;
 
+    protected Vibrator vibrator;
+
     protected final float[] deltaRotationVector = new float[4];
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected boolean bullet_fired = false;
+    protected boolean monster_hit = false;
 
+    protected void onCreate(Bundle savedInstanceState) {
         Logger.log("onCreate");
+
+        // Get instance of Vibrator from current Context
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         super.onCreate(savedInstanceState);
         mGLView = new GLSurfaceView(this);
@@ -142,6 +150,7 @@ public class MainActivity extends Activity {
         if (me.getAction() == MotionEvent.ACTION_DOWN) {
             xpos = me.getX();
             ypos = me.getY();
+            bullet_fired = true;
             return true;
         }
 
