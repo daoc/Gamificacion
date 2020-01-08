@@ -29,10 +29,18 @@ public class Blast {
     }
 
     private void init() {
-        blast = Primitives.getSphere(1f);
+//        //Explosión con un esfera
+//        blast = Primitives.getSphere(1f);
+//        blast.setOrigin(new SimpleVector(0, 0, 30));
+//        blast.setTexture("blast");
+//        blast.calcTextureWrapSpherical();
+//        blast.setVisibility(false);
+//        blast.build();
+
+        //Explosión con un plano
+        blast = Primitives.getPlane(40, 0.1f);
         blast.setOrigin(new SimpleVector(0, 0, 30));
         blast.setTexture("blast");
-        blast.calcTextureWrapSpherical();
         blast.setVisibility(false);
         blast.build();
     }
